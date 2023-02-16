@@ -206,3 +206,287 @@ System.out.flush();
     - Exceptions
     
 -----------------------
+
+<b>Implementing possible moves of Rook</b>
+
+### Checklist:
+
+- Method ChessPiece.IsThereOpponentPiece(position) [protected]
+
+- Implement Rook.PossibleMoves
+
+- Method ChessMatch.ValidateTargetPosition
+   
+- <b>OOP Topics:</b>
+
+    - Polymorphism / Encapsulation
+  
+    - Exceptions / access modifiers [protected]
+    
+-----------------------
+
+### Printing possible moves
+
+### Checklist:
+
+- Method ChessMatch.PossibleMoves
+
+- Method UI.PrintBoard [overload]
+
+- Refactor main program logic
+   
+- <b>OOP Topics:</b>
+
+    - Overloading
+  
+-----------------------
+
+### Implementing possible moves of King
+
+### Checklist:
+
+- Method King.CanMove(position) [private]
+
+- Implement King.PossibleMoves
+   
+- <b>OOP Topics:</b>
+
+    - Encapsulation / Polymorphism
+    
+-----------------------
+
+### Switching player each turn
+
+### Checklist:
+
+- Class ChessMatch:
+
+    - Properties Turn, CurrentPlayer [private set]
+    - Method NextTurn [private]
+    - Update PerformChessMove
+    - Update ValidadeSourcePosition
+
+- Method UI.PrintMatch
+   
+- <b>OOP Topics:</b>
+
+    - Encapsulation / Exceptions
+    
+-----------------------
+
+### Handling captured pieces
+
+### Checklist:
+
+- Method UI.PrintCapturedPieces
+
+- Update UI.PrintMatch
+
+- Update Program logic
+
+- Lists in ChessMatch: _piecesOnTheBoard, _capturedPieces
+
+    - Update constructor
+    
+    - Update PlaceNewPiece
+    
+    - Update MakeMove
+   
+- <b>OOP Topics:</b>
+
+    - Encapsulation / Constructors
+
+- <b>Data Structures Topics:</b>
+
+    - List
+
+-----------------------
+
+### Check logic
+
+### Rules:
+
+- Check means your king is under threat by at least one opponent piece
+
+- You can't put yourself in check
+
+## Checklist:
+
+- Property ChessPiece.ChessPosition [get]
+
+- Class ChessMatch:
+
+   - Method UndoMove
+
+   - Property Check [private set]
+   - Method Opponent [private]
+   - Method King(color) [private]
+   - Method TestCheck
+   - Update PerformChessMove
+   
+- Update UI.PrintMatch
+
+-----------------------
+
+### Checkmate logic
+
+### Checklist:
+
+- Class ChessMatch:
+  
+  - Property Checkmate [private set]
+  
+  - Method TestCheckmate [private]
+  
+  - Update PerformChessMove
+
+- Update UI.PrintMatch
+
+- Update Program logic
+
+-----------------------
+
+### Piece move count
+### Checklist:
+
+- Class ChessPiece:
+
+  - Property MoveCount [private set]
+  
+  - Method IncreaseMoveCount [internal]
+  
+  - Method DecreaseMoveCount [internal]
+  
+- Class ChessMatch:
+
+  - Update MakeMove
+  
+  - Update UndoMove
+  
+### OOP Topics:
+
+- Encapsulation
+
+-----------------------
+
+### Pawn
+
+### Checklist:
+
+- Class Pawn
+
+- Update ChessMatch.InitialSetup
+
+### OOP Topics:
+
+- Encapsulation
+
+- Inheritance
+
+- Polymorphism
+
+-----------------------
+
+### Bishop
+
+### Checklist:
+
+- Class Bishop
+
+- Update ChessMatch.InitialSetup
+
+### OOP Topics:
+
+- Encapsulation
+
+- Inheritance
+
+- Polymorphism
+
+-----------------------
+
+### Knight
+
+### Checklist:
+
+- Class Knight
+
+- Update ChessMatch.InitialSetup
+
+### OOP Topics:
+
+- Encapsulation
+
+- Inheritance
+
+- Polymorphism
+
+-----------------------
+
+### Queen
+
+### Checklist:
+
+- Class Queen
+
+- Update ChessMatch.InitialSetup
+
+### OOP Topics:
+
+- Encapsulation
+
+- Inheritance
+
+- Polymorphism
+
+-----------------------
+
+### Special move - Castling
+
+![image](https://user-images.githubusercontent.com/29154134/219432092-709b12ef-afba-43bf-abcb-bf44dc6ff3a5.png)
+
+### Checklist:
+
+- Update King
+
+- Update ChessMatch.MakeMove
+
+- Update ChessMatch.UndoMove
+
+-----------------------
+
+### Special move - En Passant
+
+![image](https://user-images.githubusercontent.com/29154134/219432362-498278b1-f9bf-4dc6-8fdd-911ba74d2d0c.png)
+
+### Checklist:
+
+- Register a pawn which can be captured by en passant on next turn
+
+    - Property ChessMatch.EnPassantVulnerable
+
+    - Update ChessMatch.PerformChessMove
+
+- Update Pawn.PossibleMoves
+
+- Update ChessMatch.MakeMove
+
+- Update ChessMatch.UndoMove
+
+- Update ChessMatch.InitialSetup
+
+-----------------------
+
+### Special move - Promotion
+
+![image](https://user-images.githubusercontent.com/29154134/219432788-43962aae-47e0-4b3d-9e82-4f356c3785d7.png)
+
+### Checklist:
+
+- Property ChessMatch.Promoted
+
+- Update ChessMatch.PerformChessMove
+
+- Method ChessMatch.ReplacePromotedPiece
+
+- Update Program logic
