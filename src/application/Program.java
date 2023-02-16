@@ -1,9 +1,14 @@
 package application;
 
+import boardgame.Position;
+
 public class Program {
 
 	public static void main(String[] args) {
-		// TODO Au        to-generated method stub
+		
+
+		Position pos = new Position(3, 6);
+		System.out.print(pos);
 
 	}
 
